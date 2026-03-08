@@ -78,7 +78,7 @@ setMessages(prev => [
 
   return <div>
     <div>
-      <CanvasBoard></CanvasBoard>
+    <CanvasBoard></CanvasBoard>
 {messages.map(msg => (
   <div key={msg.id}>
     {msg.message}

@@ -112,6 +112,7 @@ router.get("/chat/room/:slug", middleware, async (req, res) => {
     .single();
 
   if (roomError || !room) {
+    console.log("rooomm id ",slug)
     return res.status(404).json({ message: "Room not found" });
   }
 

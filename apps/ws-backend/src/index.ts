@@ -66,7 +66,7 @@ ws.on("connection",function connection(ws, request){
    }
    if(parsesata.type == "send_message") {//send checked not fix , its getting it own message once on send message it shouild 
     //send not other not broadcast to its own 
-    const roomSlug = parsesata.roomSlug;//you hve to pass roomId inorder to send meggase
+    const roomSlug = parsesata.roomId;//you hve to pass roomId inorder to send meggase
     const message = parsesata.message;
 
 

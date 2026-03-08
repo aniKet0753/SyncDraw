@@ -102,12 +102,12 @@ useEffect(() => {
  
 //circle useeffect
   return (
-    <div style={{backgroundColor:"blue", display:"flex"}}>
+    <div style={{backgroundColor:"black",}}>
       <button onClick={()=>{ settool("rectangle") }} >rectangle</button>
       <button onClick={()=>{ settool("circle")}} >circle</button>
       <button onClick={()=>{  settool("arrow") }} >arrow</button>
       <button onClick={()=> { settool("draw")}} >Draw</button>
-      <canvas style={{backgroundColor:"white", color:"white"}} ref={canvasref} height={1000} width={1500}></canvas>
+      <canvas style={{backgroundColor:"white", color:"white"}} ref={canvasref} height={1000} width={1800}></canvas>
     </div>
   )
 }
