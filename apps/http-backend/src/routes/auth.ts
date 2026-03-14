@@ -71,11 +71,8 @@ function generateRoomId(): string {
 }
 
 router.post("/room",middleware, async (req, res) => {
-const { name } = req.body || {};  
 const userId = req.userId;
-  if (!name) {
-    return res.status(400).json({ message: "room name required" });
-  }
+ 
 
   const roomId = generateRoomId();
 

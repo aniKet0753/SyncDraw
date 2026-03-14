@@ -2,10 +2,30 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+import { BACKENDURL } from "./config";
 
 export default function Room() {
   const [roomId, setroomId] = useState("")
+  const [joinroomId,setjoinroomoId] = useState("")
   const router = useRouter();
+
+  async function createroom (){
+    try{
+      const token = localStorage.getItem("token");
+    const res = await axios.post(`http://localhost:3001/api/room`,{},{headers:{
+      Authorization:`Bearer ${token}`
+    }})
+      const newroom = res.data.roomId
+      console.log("your room id is :",newroom)
+      setjoinroomoId(roomId)
+     setTimeout(()=>{
+      router.push(`/room/${newroom}`)
+    },2000)
+    }catch(error){
+      return alert("room creation error");
+    }
+  }
 
   return (
     <main
@@ -22,9 +42,9 @@ export default function Room() {
         }}  style={{ fontFamily:"Roboto", width: "100%", height: "42px", background: "#1f6fff", color: "#fff", border: "none", borderRadius: "8px" ,fontSize: "14px", fontWeight: 500, cursor: "pointer", marginBottom: "10px", }} >
           Join Room
         </button>
-        <button style={{ fontFamily:"Roboto", width: "100%", height: "42px", background: "transparent", color: "#ffffff", border: "1px solid #ffffff", borderRadius: "8px", fontSize: "14px", fontWeight: 500, cursor: "pointer",}}>
+        <button onClick={createroom} style={{ fontFamily:"Roboto", width: "100%", height: "42px", background: "transparent", color: "#ffffff", border: "1px solid #ffffff", borderRadius: "8px", fontSize: "14px", fontWeight: 500, cursor: "pointer",}}>
           Create New Room
-        </button>
+        </button>   
       </div>
     </main>
   );

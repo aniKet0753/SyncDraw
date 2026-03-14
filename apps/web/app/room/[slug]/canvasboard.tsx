@@ -43,17 +43,16 @@ useEffect(() => {
       const width = mouseX - startx
       const height = mouseY - starty
     
-    if(socket && tool === "rectangle"){
-    socket.send(JSON.stringify({
-      type:"rectangle",
-      roomId,
-      startx,
-      starty,
-      width,
-      height
-    }))
-  }
-
+        if(socket && tool === "rectangle"){
+        socket.send(JSON.stringify({
+          type:"rectangle",
+          roomId,
+          startx,
+          starty,
+          width,
+          height
+       }))
+     }
         if(socket && tool === "circle"){
         socket.send(JSON.stringify({
           type:"circle",
@@ -65,7 +64,7 @@ useEffect(() => {
         }))
       }
 
-            if(socket && tool === "arrow"){
+        if(socket && tool === "arrow"){
         socket.send(JSON.stringify({
           type:"arrow",
           roomId,
@@ -75,9 +74,6 @@ useEffect(() => {
           mouseY
         }))
       }
-
-      //sending data through socket in the backend with type "draw"
-
 
   }
 
@@ -127,19 +123,19 @@ useEffect(() => {
       ctx.moveTo(startx, starty)
       ctx.lineTo(mouseX, mouseY)
       ctx.stroke()
-
-  if(socket){
-    socket.send(JSON.stringify({
-      type:"draw",
-      roomId,
-      startx,
-      starty,
-      mouseX,
-      mouseY
-    }))
-  }
-      startx = mouseX
-      starty = mouseY
+      //sending data through socket in the backend with type "draw"
+    if(socket){
+      socket.send(JSON.stringify({
+       type:"draw",
+       roomId,
+       startx,
+       starty,
+       mouseX,
+       mouseY
+       }))
+      }
+       startx = mouseX
+       starty = mouseY
     }
   }
 
@@ -208,6 +204,7 @@ useEffect(() => {
 //circle useeffect
   return (
     <div style={{backgroundColor:"black",}}>
+      <p>Your room Id is {roomId}</p>
       <button onClick={()=>{ settool("rectangle") }} >rectangle</button>
       <button onClick={()=>{ settool("circle")}} >circle</button>
       <button onClick={()=>{  settool("arrow") }} >arrow</button>
