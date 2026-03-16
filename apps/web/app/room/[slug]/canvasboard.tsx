@@ -204,12 +204,12 @@ useEffect(() => {
 //circle useeffect
   return (
     <div style={{backgroundColor:"black",}}>
-      <p>Your room Id is {roomId}</p>
-      <button onClick={()=>{ settool("rectangle") }} >rectangle</button>
-      <button onClick={()=>{ settool("circle")}} >circle</button>
-      <button onClick={()=>{  settool("arrow") }} >arrow</button>
-      <button onClick={()=> { settool("draw")}} >Draw</button>
-      <canvas style={{backgroundColor:"white", color:"white"}} ref={canvasref} height={1000} width={1800}></canvas>
+      <span >Your room Id is {roomId}</span>
+      <button style={{padding:"10px 16px",borderRadius:"8px",border:"1px",backgroundColor:"#1f1f1f",cursor:"pointer",marginLeft:"480px",fontFamily:"monospace", fontSize:"16px"}} onClick={()=>{ settool("rectangle") }} >rectangle</button>
+      <button style={{padding:"10px 16px",borderRadius:"8px",border:"1px",backgroundColor:"#1f1f1f",cursor:"pointer",marginLeft:"40px",fontFamily:"monospace", fontSize:"16px"}} onClick={()=>{ settool("circle")}} >circle</button>
+      <button style={{padding:"10px 16px",borderRadius:"8px",border:"1px",backgroundColor:"#1f1f1f",cursor:"pointer",marginLeft:"40px",fontFamily:"monospace", fontSize:"16px"}} onClick={()=>{  settool("arrow") }} >arrow</button>
+      <button style={{padding:"10px 16px",borderRadius:"8px",border:"1px",backgroundColor:"#1f1f1f",cursor:"pointer",marginLeft:"40px",fontFamily:"monospace", fontSize:"16px"}}onClick={()=> { settool("draw")}} >Draw</button>
+      <canvas style={{backgroundColor:"white", color:"white",borderRadius:"17px",marginLeft:""}} ref={canvasref} height={900} width={1630}></canvas>
     </div>
   )
 }

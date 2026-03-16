@@ -11,7 +11,7 @@ export function Butoom({ label , onClick}: Butoonprops) {
       style={{
         fontFamily:"Roboto",
         height:"50px",
-        width:"200px",
+        width:"240px",
         backgroundColor: "#006aff",
         color: "#ffffff",
         border: "none",

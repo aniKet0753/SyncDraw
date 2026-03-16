@@ -76,18 +76,24 @@ setMessages(prev => [
   }
     if (loading) return <div>Connecting...</div>
 
-  return <div>
-    <div>
+  return <div style={{ display: "flex", backgroundColor: "black", height: "110vh" }}>
+
+      <div style={{marginLeft:"14px"}}>
     <CanvasBoard roomId={roomId} socket={socket}></CanvasBoard>
-{messages.map(msg => (
-  <div key={msg.id}>
-    {msg.message}
-  </div>
-))}
-</div>
-   <Input value={message} placeholder="message"  onChange={(e)=>{ setmessage(e.target.value)
+    </div>
+    <div style={{ width: "300px", color: "white", display: "flex", flexDirection: "column", borderLeft: "1px solid #333", padding: "10px" , borderRadius:"10px"}}>
+    <div style={{ flex: 1, overflowY: "auto", marginBottom: "10px", paddingRight:"8px",wordBreak:"break-word"}}>
+      {messages.map(msg => (
+      <div key={msg.id} style={{ marginBottom: "6px",  wordBreak:"break-word",overflowWrap:"anywhere",maxWidth:"100%"}}>
+        {msg.message}
+      </div>
+    ))}
+    </div>
+ <div style={{ display: "flex", gap: "1px",flexDirection:"column"  }}>
+   <input style={{padding:"15px", borderRadius:"10px"}} value={message} placeholder="message" onChange={(e)=>{ setmessage(e.target.value)
    }} />
    <Butoom label="Send" onClick={sendmessage}/>
-   
+   </div>
+  </div>
   </div>
 }
