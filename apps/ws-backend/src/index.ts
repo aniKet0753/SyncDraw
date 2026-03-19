@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import path from "path";
 dotenv.config({
-  path: path.resolve(__dirname, "../../.env")
+  path: path.resolve(process.cwd(), "../.env"),
 });
 import { WebSocketServer,WebSocket } from "ws";
 import jwt from "jsonwebtoken";
