@@ -6,6 +6,7 @@ import { Butoom } from "@repo/ui/button";
 import { Input } from "@repo/ui/input";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { BACKENDURL } from "../room/config";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ export default function Signin() {
       return;
     }
       try {
-      const res = await axios.post("http://localhost:3001/api/signin", {
+      const res = await axios.post(`${BACKENDURL}/api/signin`, {
         email,
         password,
       });

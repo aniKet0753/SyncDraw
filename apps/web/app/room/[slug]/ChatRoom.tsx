@@ -44,7 +44,7 @@ export default function ChatRoom ({roomId}:{roomId:string}){
   useEffect(() => {
     async function loadMessages() {
       const res = await axios.get<{ messages: ChatMessage[] }>(
-        `${BACKENDURL}/chat/room/${roomId}`,
+        `${BACKENDURL}/api/chat/room/${roomId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -52,7 +52,8 @@ export default function ChatRoom ({roomId}:{roomId:string}){
         }
       );
 
-      setMessages(res.data.messages);
+      setMessages(res.data.messages);//res.data contains object{" "}
+      console.log(res.data.messages);//array
     }
 
     loadMessages();

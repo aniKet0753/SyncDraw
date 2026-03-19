@@ -83,7 +83,7 @@ export default function Home() {
       {/*mid body section*/ }
        <section style={{ marginTop:"130px", width: "100%" , backgroundColor: "#ffffff", padding: "100px 40px",}} >
          <h2 style={{ textAlign: "center", fontSize: "42px", fontWeight: "700",marginBottom: "70px", color: "#2b2b2b",fontFamily: "Inter, system-ui, sans-serif",}}>
-           Why Choose Excalidraw?
+           Why Choose SyncDraw?
          </h2>
          <div style={{display: "grid",gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "45px", maxWidth: "1400px", margin: "0 auto", }}>
     {[

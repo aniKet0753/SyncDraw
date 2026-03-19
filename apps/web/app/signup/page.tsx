@@ -5,6 +5,7 @@ import { Input } from "@repo/ui/input";
 import axios from "axios";
 import { useState } from "react";
 import {useRouter} from "next/navigation";
+import { BACKENDURL } from "../room/config";
 
 export default  function Signup() {
   const [email, setEmail] = useState("");
@@ -22,7 +23,7 @@ export default  function Signup() {
       return;
     }
     try {
-       await axios.post("http://localhost:3001/api/signup", {
+       await axios.post(`${BACKENDURL}/api/signup`, {
         email,
         password,
         name,

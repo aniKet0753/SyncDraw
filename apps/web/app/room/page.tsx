@@ -13,7 +13,7 @@ export default function Room() {
   async function createroom (){
     try{
       const token = localStorage.getItem("token");
-    const res = await axios.post(`http://localhost:3001/api/room`,{},{headers:{
+      const res = await axios.post(`${BACKENDURL}/api/room`,{},{headers:{
       Authorization:`Bearer ${token}`
     }})
       const newroom = res.data.roomId
