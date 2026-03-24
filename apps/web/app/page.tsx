@@ -161,7 +161,7 @@ export default function Home() {
     Get Started Now
   </button>
   <div style={{ marginTop: "60px", fontSize: "20px", color: "rgba(255,255,255,0.85)",fontFamily:"'Inter', system-ui, sans-serif" }} >
-   © 2026 Excalidraw. Made with ❤️ By Aniket Kumar.
+   © 2026 SyncDraw. Made with ❤️ By Aniket Kumar.
   </div>
 </section>
     </main>
