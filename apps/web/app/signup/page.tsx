@@ -8,6 +8,7 @@ import {useRouter} from "next/navigation";
 import { BACKENDURL } from "../room/config";
 
 export default  function Signup() {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setname] = useState("");
@@ -22,6 +23,7 @@ export default  function Signup() {
       seterror("please fill all fields");
       return;
     }
+    setLoading(true);
     try {
        await axios.post(`${BACKENDURL}/api/signup`, {
         email,
@@ -38,6 +40,8 @@ export default  function Signup() {
     } catch (error: any) {
       console.log(error);
       seterror("Signup failed. plase Check your details and try again.");
+    }finally{
+      setLoading(false);
     }
   }
   return (
@@ -57,7 +61,7 @@ export default  function Signup() {
                 <p style={{ color: "green", marginBottom: "8px" }}>{success}</p>)}
               {error && (
                 <p style={{ color: "red", marginBottom: "8px" }}>{error}</p>)}
-              <Butoom onClick={handleSignup} label="SignUP" />
+              <Butoom onClick={handleSignup} loading={loading} label="SignUP" />
             </div>
           </div>
         </main>

@@ -63,7 +63,7 @@ export default function Home() {
              Collaborate in real-time, export your work, and bring your ideas to<br /> life.</p>
           
           <div style={{gap:"19px", display:"flex",padding:"20px"}}>
-          <Butoom  label="Start Drawing Free" onClick={startdrwing} />
+          <Butoom  label="Start Drawing" onClick={startdrwing} />
           <Butoom label="Watch Demo" onClick={demovideo} />
           </div>
 

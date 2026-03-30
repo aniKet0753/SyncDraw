@@ -9,6 +9,7 @@ import axios from "axios";
 import { BACKENDURL } from "../room/config";
 
 export default function Signin() {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState("");
@@ -17,12 +18,13 @@ export default function Signin() {
 
 
   async function handleSignin() {
-    setEmail("");
-    setPassword("");
     if (!email || ! password) {
       setError("please fill all fields");
       return;
     }
+    setLoading(true);
+    setEmail("");
+    setPassword("");
       try {
       const res = await axios.post(`${BACKENDURL}/api/signin`, {
         email,
@@ -47,6 +49,7 @@ export default function Signin() {
       const errorMessage = err.response?.data?.message || "Signin failed. Please check your credentials.";
       setError(errorMessage);
     } finally {
+      setLoading(false)
     }
   }
 
@@ -65,7 +68,7 @@ export default function Signin() {
                 <p style={{ color: "green", marginBottom: "8px" }}>{success}</p>)}
               {error && (
                 <p style={{ color: "red", marginBottom: "8px" }}>{error}</p>)}
-              <Butoom onClick={handleSignin}  label="SignIn" />
+              <Butoom onClick={handleSignin} loading={loading}  label="SignIn" />
             </div>
           </div>
         </main>

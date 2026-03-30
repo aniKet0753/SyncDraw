@@ -1,10 +1,10 @@
 interface Butoonprops {
   label: string;
     onClick?: () => void;
-    
+    loading?: boolean; 
 }
 
-export function Butoom({ label , onClick}: Butoonprops) {
+export function Butoom({ label , onClick, loading}: Butoonprops) {
   return (
     <button
     onClick={onClick}
@@ -19,12 +19,12 @@ export function Butoom({ label , onClick}: Butoonprops) {
         alignItems: "center",
         fontSize: "20px",
         fontWeight: 500,
-        cursor: "pointer",
+        cursor: loading ? "not-allowed" : "pointer",
         marginTop:"30px",
         borderColor:"black",
-      }}
+      }}    
     >
-      {label}
+ {loading ? "Signing in..." : label}
     </button>
   );
 }
