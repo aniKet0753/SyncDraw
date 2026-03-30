@@ -1,135 +1,98 @@
-# Turborepo starter
+ SyncDraw — Real-Time Collaborative Whiteboard
+<img width="1901" height="868" alt="{C6A122FE-FA6B-45A2-B496-B199921A8EB3}" src="https://github.com/user-attachments/assets/b94fe5a7-c82e-4c3d-a98d-5045759704a3" />
+A modern, real-time collaborative whiteboard with live chat, built using a scalable Turborepo architecture.
+Designed for seamless multi-user interaction with instant updates powered by WebSockets.
 
-This Turborepo starter is maintained by the Turborepo core team.
+✨ Features
+🧑‍🤝‍🧑 Real-time multi-user collaboration
+💬 Live chat system inside rooms
+🏠 Room-based session management
+🎨 Interactive whiteboard (draw, shapes, arrows)
+🔐 Authentication (Sign up / Sign in)
+⚡ Instant updates via WebSockets
+🧩 Monorepo architecture using Turborepo
+🚀 Production deployment ready
+🏗️ Architecture
 
-## Using this example
+<img width="1643" height="869" alt="{E5DEBB94-99F2-4763-B572-4CB658999E9A}" src="https://github.com/user-attachments/assets/aa4b88a0-a1a1-4cb7-96ff-dadc867d5e95" />
 
-Run the following command:
+This project follows a modular Turborepo structure:
 
-```sh
-npx create-turbo@latest
-```
+apps/
+  web            → Frontend (React)
+  http-backend   → REST API (Auth, Rooms)
+  ws-backend     → WebSocket server (Real-time)
 
-## What's inside?
+packages/
+  db             → Database layer
+  ui             → Shared UI components
+  eslint-config  → Shared lint config
+  typescript-config → Shared TS config
+ How it works
+Frontend (web) handles UI and user interactions
+HTTP Backend manages:
+Authentication
+Room creation
+WebSocket Backend handles:
+Real-time drawing sync
+Chat messages
+All services are connected and run together using pnpm + turborepo
+🛠️ Tech Stack
+Frontend: React, TypeScript
+Backend: Node.js
+WebSockets: ws / socket-based communication
+Monorepo: Turborepo
+Package Manager: pnpm
+Database: (add yours e.g. PostgreSQL / MongoDB)
+Deployment: Vercel (Frontend)
+⚡ Getting Started
+1️⃣ Clone the repo
+git clone https://github.com/your-username/syncdraw.git
+cd syncdraw
+2️⃣ Install dependencies
+pnpm install
+3️⃣ Setup environment variables
 
-This Turborepo includes the following packages/apps:
+Create .env files in:
 
-### Apps and Packages
+apps/http-backend
+apps/ws-backend
+packages/db (if needed)
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+Example:
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+DATABASE_URL=
+JWT_SECRET=
+PORT=
+4️⃣ Run the project
+pnpm dev
 
-### Utilities
+This will start all apps concurrently via Turborepo.
 
-This Turborepo has some additional tools already setup for you:
+🌐 Live Demo
+ https://sync-draw-web.vercel.app
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+Whiteboard UI
+Chat system
+Room joining
+Drawing sync
+🧩 Key Highlights (for recruiters)
+Built a real-time system using WebSockets (not polling)
+Designed a scalable monorepo architecture
+Implemented multi-service communication (frontend + 2 backends)
+Focused on low-latency synchronization
+Clean separation of concerns across services
+🚀 Future Improvements
+🎥 Voice / video collaboration
+🧠 AI drawing suggestions
+📁 Save & load boards
+👥 User presence indicators
+📱 Mobile responsiveness
+🤝 Contributing
 
-### Build
+Contributions are welcome! Feel free to open issues or submit PRs.
 
-To build all apps and packages, run the following command:
+<img width="1916" height="877" alt="{71454471-FD41-4D4B-8CDB-AD228E8F9F25}" src="https://github.com/user-attachments/assets/b0b2a104-082b-4962-ac16-1fa9a09504b7" />
 
-```
-cd my-turborepo
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
