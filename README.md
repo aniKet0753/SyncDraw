@@ -90,6 +90,7 @@ Clean separation of concerns across services
 📱 Mobile responsiveness
 🤝 Contributing
 
+
 Contributions are welcome! Feel free to open issues or submit PRs.
 
 <img width="1916" height="877" alt="{71454471-FD41-4D4B-8CDB-AD228E8F9F25}" src="https://github.com/user-attachments/assets/b0b2a104-082b-4962-ac16-1fa9a09504b7" />
